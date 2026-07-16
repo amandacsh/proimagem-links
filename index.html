@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProImagem · Medicina Diagnóstica</title>
+<meta name="description" content="ProImagem Medicina Diagnóstica — Garça/SP. Agende exames, acesse resultados e fale com a clínica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --azul-marca:#1E5495; --azul-profundo:#1B4E89; --azul-vivo:#155CB7;
+    --silver:#B8BCC2; --cinza:#7A7A7A; --grafite:#3A3A3A; --offwhite:#FAFAFA;
+    --whats:#25D366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{min-height:100%}
+  body{
+    font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+    color:#e9f0f8; background:#040d1e; min-height:100vh;
+    display:flex;justify-content:center; padding:46px 22px 42px;
+    -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;
+    background:
+      radial-gradient(1200px 720px at 50% -4%, #103257 0%, rgba(16,50,87,0) 60%),
+      radial-gradient(760px 760px at 50% 118%, #0c2748 0%, rgba(12,39,72,0) 62%),
+      linear-gradient(180deg,#06152f 0%, #040f24 56%, #030a1a 100%);
+  }
+  .wrap{width:100%;max-width:396px;position:relative;z-index:1}
+
+  .head{text-align:center;margin-bottom:30px}
+  .logo{width:min(196px,52%);height:auto;display:block;margin:0 auto 22px;
+    filter:drop-shadow(0 6px 16px rgba(0,0,0,.32));}
+  .serif{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;
+    line-height:1.36;color:#f1f6fc;letter-spacing:.2px;}
+  .rule{width:46px;height:1px;margin:16px auto 15px;
+    background:linear-gradient(90deg,transparent,rgba(184,188,194,.6),transparent);}
+  .sub{font-weight:400;font-size:11.5px;line-height:1.65;color:#8fa2bd;
+    max-width:312px;margin:0 auto;}
+  .pin{display:inline-flex;align-items:center;gap:6px;margin-top:16px;
+    font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#aeb9c7;}
+  .pin svg{width:12px;height:12px;stroke:#aeb9c7;fill:none;stroke-width:1.7}
+
+  .cta{display:flex;align-items:center;gap:15px;text-decoration:none;
+    background:linear-gradient(135deg,#2a6fc4 0%, #1d5399 55%, #17457f 100%);
+    border:1px solid rgba(120,175,235,.35);border-radius:18px;padding:16px 18px;
+    box-shadow:0 12px 34px rgba(10,40,80,.5), inset 0 1px 0 rgba(255,255,255,.16);
+    transition:transform .16s ease, box-shadow .16s ease;position:relative;overflow:hidden;}
+  .cta::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(120px 60px at 82% -20%, rgba(255,255,255,.18), transparent 70%);}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(10,40,80,.6), inset 0 1px 0 rgba(255,255,255,.18);}
+  .cta:active{transform:translateY(0)}
+  .cta .ci{flex:0 0 46px;height:46px;border-radius:50%;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+  .cta .ci svg{width:24px;height:24px;fill:#fff}
+  .cta .ct{display:flex;flex-direction:column;flex:1;position:relative;z-index:1}
+  .cta .ct b{font-weight:600;font-size:15.5px;color:#fff;letter-spacing:.2px}
+  .cta .ct span{font-weight:400;font-size:11.5px;color:rgba(233,240,250,.82);margin-top:2px}
+  .cta .carr{position:relative;z-index:1}
+  .cta .carr svg{width:18px;height:18px;fill:none;stroke:rgba(255,255,255,.85);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  .eyebrow{display:flex;align-items:center;gap:12px;margin:26px 2px 14px;
+    font-size:10px;font-weight:600;letter-spacing:2.4px;text-transform:uppercase;color:#7d90ac;}
+  .eyebrow::before,.eyebrow::after{content:"";height:1px;flex:1;background:rgba(184,188,194,.16)}
+  .rows{display:flex;flex-direction:column;gap:9px}
+  a.row{display:flex;align-items:center;gap:14px;text-decoration:none;
+    background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.075);
+    border-radius:15px;padding:13px 15px;
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;position:relative}
+  a.row:hover{transform:translateX(3px);background:rgba(255,255,255,.06);border-color:rgba(120,170,225,.4)}
+  .ri{flex:0 0 42px;height:42px;border-radius:50%;
+    border:1px solid rgba(184,188,194,.34);background:rgba(120,160,215,.06);
+    display:flex;align-items:center;justify-content:center}
+  .ri svg{width:20px;height:20px;fill:none;stroke:#a9c4e8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .rt{display:flex;flex-direction:column;flex:1;min-width:0}
+  .rt b{font-weight:600;font-size:14px;color:#eef4fb;letter-spacing:.15px;line-height:1.25}
+  .rt span{font-weight:400;font-size:11px;color:#8093ad;margin-top:2.5px;line-height:1.35}
+  .rarr svg{width:16px;height:16px;fill:none;stroke:#5f779a;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  a.row.soon{opacity:.5;pointer-events:none}
+  a.row.soon::after{content:"em breve";position:absolute;top:9px;right:13px;
+    font-size:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#c3d0e2;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:2px 8px;border-radius:20px;}
+
+  .foot{margin-top:34px;text-align:center}
+  .fdiv{width:56px;height:1px;margin:0 auto 18px;background:linear-gradient(90deg,transparent,rgba(184,188,194,.4),transparent)}
+  .foot .name{font-weight:600;font-size:11px;letter-spacing:.6px;color:#b9c7db}
+  .foot .legal{font-weight:400;font-size:9.5px;line-height:1.85;color:#76899f;margin-top:9px}
+  .foot .rt2{font-weight:500;font-size:9.5px;color:#8a9db8;margin-top:9px}
+  .foot .tag{font-family:'Fraunces',serif;font-style:italic;font-size:12.5px;color:#8ba1c0;margin-top:16px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="head">
+      <img class="logo" src="data:image/png;base64,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" alt="ProImagem Medicina Diagnóstica">
+      <p class="serif">Aqui, o cuidado tem nome.<br>O seu.</p>
+      <div class="rule"></div>
+      <p class="sub">Na ProImagem, seus exames de Ressonância Magnética e Tomografia contam com o apoio do Telelaudo do Einstein na emissão dos laudos.</p>
+      <span class="pin"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Garça · São Paulo</span>
+    </header>
+
+    <a class="cta" href="https://wa.me/5514998375349?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20exame%20na%20ProImagem." target="_blank" rel="noopener">
+      <span class="ci"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.32-1.95 1.36-.5.05-1.14.07-1.84-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.42-.15-.19-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.03-2.44.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.16.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.19.73-.85.93-1.14.19-.29.39-.24.65-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.12.07.68-.17 1.36z"/></svg></span>
+      <span class="ct"><b>Agendar meu exame</b><span>Fale com a recepção · (14) 99837-5349</span></span>
+      <span class="carr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <div class="eyebrow">acesso rápido</div>
+
+    <nav class="rows">
+
+      <a class="row soon" href="#" onclick="return false">
+        <span class="ri"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z"/><path d="M5 20a7 7 0 0114 0"/></svg></span>
+        <span class="rt"><b>Canal do médico solicitante</b><span>Um caminho direto para quem indica</span></span>
+        <span class="rarr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="row" href="https://www.diagnosticosproimagem.com.br" target="_blank" rel="noopener">
+        <span class="ri"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 2.6 15 0 18M12 3c-2.6 2.5-2.6 15 0 18"/></svg></span>
+        <span class="rt"><b>Conheça nossos exames e estrutura</b><span>Site oficial da ProImagem</span></span>
+        <span class="rarr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="row" href="https://pacs.diagnosticosproimagem.com.br/login" target="_blank" rel="noopener">
+        <span class="ri"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+        <span class="rt"><b>Meus resultados online</b><span>Seus laudos e imagens, quando precisar</span></span>
+        <span class="rarr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="row" href="https://pacs.diagnosticosproimagem.com.br/login" target="_blank" rel="noopener">
+        <span class="ri"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.2-3.6"/></svg></span>
+        <span class="rt"><b>Área do médico</b><span>Imagens e laudos dos seus pacientes</span></span>
+        <span class="rarr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="row" href="https://www.google.com/maps/search/?api=1&query=ProImagem+Medicina+Diagn%C3%B3stica+Av+Dr+Rafael+Paes+de+Barros+549+Gar%C3%A7a+SP" target="_blank" rel="noopener">
+        <span class="ri"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <span class="rt"><b>Como chegar até a clínica</b><span>Av. Dr. Rafael Paes de Barros, 549 · Garça</span></span>
+        <span class="rarr"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+
+    </nav>
+
+    <footer class="foot">
+      <div class="fdiv"></div>
+      <div class="name">PROIMAGEM DIAGNÓSTICOS MÉDICOS LTDA</div>
+      <div class="legal">CNPJ 14.882.395/0001-08 · CNES 7017456<br>
+        Av. Dr. Rafael Paes de Barros, 549 — Williams — Garça/SP · 17.402-002<br>
+        (14) 3471-2559 · adm@diagnosticosproimagem.com.br</div>
+      <div class="rt2">Responsável Técnico: Dr. Rafael Hamzé — CRM-SP 130.185 · RQE 67.872</div>
+      <div class="tag">Um centro integrado de diagnóstico e especialidades médicas para decisões clínicas mais seguras.</div>
+    </footer>
+
+  </div>
+</body>
+        </html>
